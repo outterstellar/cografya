@@ -82,7 +82,8 @@ class Tools {
         child: Center(
           child: GestureDetector(
             onTap: () {
-              Navigator.of(context).push(CupertinoPageRoute(builder: (context)=>SubBranchPage(subBranch: i)));
+              Navigator.of(context).push(CupertinoPageRoute(
+                  builder: (context) => SubBranchPage(subBranch: i)));
             },
             child: Container(
                 decoration: BoxDecoration(
@@ -105,7 +106,9 @@ class Tools {
     }
     return list;
   }
-  static returnSubBranchPage({required BuildContext context,required SubBranch subbranch}){
+
+  static returnSubBranchPage(
+      {required BuildContext context, required SubBranch subbranch}) {
     List<Widget> list = [
       Center(
           child: Text(
@@ -143,7 +146,24 @@ class Tools {
         ),
       )
     ];
-  return list;
-
-}
+    for (String i in subbranch.images) {
+      list.add(Center(
+        child: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/${i}"),
+                  fit: BoxFit.scaleDown,
+                ),
+                border: Border.all(width: 3, color: Colors.transparent),
+                borderRadius: BorderRadius.circular(50)),
+            height: 500.h,
+            width: 800.w,
+          ),
+        ),
+      ),);
+    }
+    return list;
+  }
 }
