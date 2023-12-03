@@ -71,7 +71,7 @@ class Constants {
           padding: const EdgeInsets.all(32.0),
           child: Text(
             "Developer : Doğaç Evcin",
-            style: TextStyle(color: Constants.mainColor),
+            style: TextStyle(color: Constants.mainColor,fontSize: 17.sp),
           ),
         )
       ],
